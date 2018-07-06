@@ -48010,16 +48010,18 @@ drakken_fire_spin.forms.send_btn = document.getElementById("send");
 drakken_fire_spin.forms.db_str_in = document.getElementById("dbstr");
 drakken_fire_spin.forms.run_str_in = document.getElementById("runstr");
 drakken_fire_spin.forms.el = document.getElementById("cbresult");
-console.log(drakken_fire_spin.forms.send_btn);
 drakken_fire_spin.forms.post_response = function drakken_fire_spin$forms$post_response(response) {
+  if (cljs.core._EQ_.call(null, "true", response)) {
+    drakken_fire_spin.forms.el.style.backgroundColor = "lightgreen";
+  } else {
+    drakken_fire_spin.forms.el.style.backgroundColor = "orange";
+  }
   return drakken_fire_spin.forms.el.innerHTML = response;
 };
 drakken_fire_spin.forms.send_to_server = function drakken_fire_spin$forms$send_to_server(ev) {
   var db_str = drakken_fire_spin.forms.db_str_in.value;
   var run_str = drakken_fire_spin.forms.run_str_in.value;
-  console.log(ajax.core.GET.call(null, ["/", cljs.core.str.cljs$core$IFn$_invoke$arity$1(db_str), "\x26", cljs.core.str.cljs$core$IFn$_invoke$arity$1(run_str)].join(""), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "handler", "handler", -195596612), drakken_fire_spin.forms.post_response], null)));
-  console.log(run_str);
-  return console.log(ev);
+  return ajax.core.GET.call(null, ["/", cljs.core.str.cljs$core$IFn$_invoke$arity$1(db_str), "\x26", cljs.core.str.cljs$core$IFn$_invoke$arity$1(run_str)].join(""), new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null, "handler", "handler", -195596612), drakken_fire_spin.forms.post_response], null));
 };
 drakken_fire_spin.forms.send_btn.addEventListener("click", drakken_fire_spin.forms.send_to_server);
-drakken_fire_spin.forms.el.innerHTML = "the form portion is loaded woo!";
+drakken_fire_spin.forms.el.innerHTML = "Loaded Javascript.";
