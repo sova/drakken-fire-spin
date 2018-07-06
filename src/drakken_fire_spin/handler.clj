@@ -12,7 +12,7 @@
 
 (defroutes app-routes
   (GET "/" [] (html [:p {:style "background-color: lightblue;
-                                 font-size: 24px;"} "To run: " [:em "lein cljsbuild once && lein ring server"]]
+                                 font-size: 24px;"} "Thanks again for your consideration. Here is source code and a working implementation below. -Vaso"]
 
                     [:h2 "Task 1: Methods.clj"]
                     [:p "Complete the function (scramble str1 str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false."]
@@ -32,7 +32,7 @@
 
 
   (GET "/:dbstr&:runstr" [dbstr runstr :as params]
-       (let [result (scramble? dbstr runstr)]
+       (let [result (try (scramble? dbstr runstr) (catch Exception e (str "exception: " (.getMessage e))))]
          (if (nil? result)
            (concat "false")
            ;else

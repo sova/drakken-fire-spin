@@ -1,6 +1,8 @@
-# drakken-fire-spin
+# Drakken Fire Spin
 
-FIXME
+This is a solution to the puzzle for fintech company as seen at [Clojure Challenge][]
+
+[clojure challenge]: https://tinyurl.com/ClojureChallenge
 
 ## Prerequisites
 
@@ -10,10 +12,18 @@ You will need [Leiningen][] 2.0.0 or above installed.
 
 ## Running
 
-To start a web server for the application, run:
+To compile the javascript and start a web server for the application, run:
 
-    lein ring server
+    lein cljsbuild once && lein ring server
+
+will start a server on port 3000
+
+If you prefer, you may run
+
+    lein ring server-headless
+
+and navigate to localhost:3000/ manually.
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 Vaso Vukotic [sova.kuliana@gmail.com]
