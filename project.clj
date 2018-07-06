@@ -7,6 +7,7 @@
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
                  [hiccup "1.0.5"]
+                 [cljs-ajax "0.7.3"]
                  [duratom "0.3.3"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-cljsbuild "1.1.7"]]
